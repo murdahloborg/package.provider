@@ -6,7 +6,6 @@
     <Nullable>enable</Nullable>
     <Title>Sample</Title>
     <RepositoryUrl>https://github.com/murdahloborg/package.provider</RepositoryUrl>
-    <Version>1.0.0</Version>
   </PropertyGroup>
 
 </Project>
