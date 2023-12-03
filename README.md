@@ -1,2 +1,2 @@
 # package.provider
-Test npackage11
+Test npackage
