@@ -19,10 +19,10 @@ jobs:
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.8
       with:
-        versionSpec: 5.x
+        versionSpec: 5.3.x
     
     - name: Determine Version
-      uses: gittools/actions/gitversion/execute@v0.9.8
+      uses: gittools/actions/gitversion/execute@v0.9.8   
       id: gitversion 
     - name: Display GitVersion outputs
       run: |
