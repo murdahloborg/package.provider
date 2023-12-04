@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        fetch-depth: 0 #fetch-depth is needed for GitVersion
+        fetch-depth: 0 
         
     - name: Install GitVersion
       uses: gittools/actions/gitversion/setup@v0.9.8
@@ -60,17 +60,10 @@ jobs:
       run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
     
     - name: Create Release
-      if: 1 == 0 
+      if: 1 == 1 
       uses: actions/create-release@v1
       with:
         tag_name: ${{ needs.build.outputs.Version }}
         release_name: Release ${{ needs.build.outputs.Version }}
     
-    - name: Create Release
-      if: needs.build.outputs.CommitsSinceVersionSource > 0 
-      uses: ncipollo/release-action@v1
-      with:
-        tag: ${{ needs.build.outputs.Version }}
-        name: Release ${{ needs.build.outputs.Version }}
-        artifacts: "nugetPackage/*"
-        token: ${{ secrets.GITHUB_TOKEN }}
+    
