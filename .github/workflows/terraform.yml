@@ -60,8 +60,9 @@ jobs:
       run: dotnet nuget push nugetPackage/*.nupkg --api-key ${{ secrets.GITHUB_TOKEN }}  --source "github"
     
     - name: Create Release
-      if: 1 == 1 
       uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ needs.build.outputs.Version }}
         release_name: Release ${{ needs.build.outputs.Version }}
